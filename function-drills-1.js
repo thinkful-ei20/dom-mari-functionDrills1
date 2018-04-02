@@ -9,13 +9,18 @@ function yearOfBirth (age) {
 
 function whoAmI (name, age) {
   if (name === undefined || age === undefined) {
-    console.error('Arguments not valid');
+    console.error('Arguments are undefined');
   }
-  try {
-    console.log(`Hi, my name is ${name} and I am ${age} years old.`);
-    console.log(`I was born in ${yearOfBirth(age)}.`);
+  else if (typeof name !== 'string' || typeof age !== 'number'){
+    console.error('Arguments not valid type');
   }
-  catch(e) { console.log(e.message);}
+  else {
+    try {
+      console.log(`Hi, my name is ${name} and I am ${age} years old.`);
+      console.log(`I was born in ${yearOfBirth(age)}.`);
+    }
+    catch(e) { console.log(e.message);}
+  }
 }
 
 
